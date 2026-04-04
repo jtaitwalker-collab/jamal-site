@@ -1,0 +1,91 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: #080808;
+  --surface: #111111;
+  --surface-2: #181818;
+  --border: rgba(255, 255, 255, 0.07);
+  --gold: #c9a84c;
+  --ink: #e8e3d8;
+  --muted: #7a7570;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-inter), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Thin scrollbar */
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 2px;
+}
+
+/* Selection */
+::selection {
+  background: rgba(201, 168, 76, 0.25);
+  color: var(--ink);
+}
+
+/* Focus styles */
+:focus-visible {
+  outline: 1px solid var(--gold);
+  outline-offset: 2px;
+}
+
+/* Waveform animation for mic button */
+@keyframes waveform {
+  0%, 100% { transform: scaleY(0.4); }
+  50% { transform: scaleY(1); }
+}
+
+.bar-1 { animation: waveform 0.8s ease-in-out infinite; }
+.bar-2 { animation: waveform 0.8s ease-in-out 0.15s infinite; }
+.bar-3 { animation: waveform 0.8s ease-in-out 0.3s infinite; }
+.bar-4 { animation: waveform 0.8s ease-in-out 0.45s infinite; }
+.bar-5 { animation: waveform 0.8s ease-in-out 0.6s infinite; }
+
+/* Streaming text cursor */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.cursor::after {
+  content: "▋";
+  color: var(--gold);
+  animation: blink 1s step-start infinite;
+  margin-left: 1px;
+}
+
+/* Metric card hover glow */
+.metric-card:hover {
+  border-color: rgba(201, 168, 76, 0.25);
+  box-shadow: 0 0 24px rgba(201, 168, 76, 0.04);
+}
+
+/* Timeline connector line */
+.timeline-line {
+  background: linear-gradient(to bottom, rgba(201, 168, 76, 0.4), rgba(201, 168, 76, 0.05));
+}
