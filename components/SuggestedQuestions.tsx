@@ -1,14 +1,14 @@
 "use client";
 
 const SUGGESTED_QUESTIONS = [
-  "What's your biggest enterprise deal?",
-  "How have you consistently hit quota?",
-  "Tell me about your GTM experience",
-  "What sales methodologies do you use?",
-  "How did you build pipeline at Acoustic?",
-  "What verticals have you opened?",
-  "How did you displace Okta and OneLogin?",
-  "Tell me about your experience at Series A startups",
+  "Why has he moved between companies so often?",
+  "Can he close enterprise deals or just SMB?",
+  "Has he ever built a sales motion from scratch?",
+  "What's the biggest pipeline he's ever generated?",
+  "Would he need hand-holding or can he run independently?",
+  "What's his actual track record on quota?",
+  "Why is he looking for a new role right now?",
+  "What makes him different from other senior AEs?",
 ];
 
 interface Props {

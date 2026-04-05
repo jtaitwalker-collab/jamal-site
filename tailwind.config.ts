@@ -10,15 +10,15 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        bg: "#080808",
-        surface: "#111111",
-        "surface-2": "#181818",
-        border: "rgba(255,255,255,0.07)",
-        gold: "#c9a84c",
+        bg: "#0a1628",
+        surface: "#0e1f38",
+        "surface-2": "#122544",
+        border: "rgba(200,168,75,0.15)",
+        gold: "#c8a84b",
         "gold-dim": "#a07d32",
         ink: "#e8e3d8",
-        muted: "#7a7570",
-        "muted-2": "#4a4540",
+        muted: "#7a8fa8",
+        "muted-2": "#3a4d62",
       },
       fontFamily: {
         display: ["var(--font-playfair)", "Georgia", "serif"],
