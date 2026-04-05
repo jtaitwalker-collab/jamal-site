@@ -1,6 +1,9 @@
 "use client";
 
-import { useState, useCallback, useRef } from "react";
+import { useState, useCallback, useRef, useEffect } from "react";
+
+// Inlined at build time by Next.js webpack — must use the literal string here
+const DEEPGRAM_API_KEY = process.env.NEXT_PUBLIC_DEEPGRAM_API_KEY;
 
 export type DeepgramStatus = "idle" | "connecting" | "listening" | "error";
 
@@ -17,6 +20,14 @@ export function useDeepgram() {
   const [interimTranscript, setInterimTranscript] = useState("");
   const [status, setStatus] = useState<DeepgramStatus>("idle");
   const [errorMessage, setErrorMessage] = useState("");
+
+  useEffect(() => {
+    console.log(
+      "[Deepgram] API key present:",
+      !!DEEPGRAM_API_KEY,
+      DEEPGRAM_API_KEY ? `(${DEEPGRAM_API_KEY.slice(0, 8)}…)` : "(undefined)"
+    );
+  }, []);
 
   const wsRef = useRef<WebSocket | null>(null);
   const mediaRecorderRef = useRef<MediaRecorder | null>(null);
@@ -40,7 +51,7 @@ export function useDeepgram() {
   }, []);
 
   const startListening = useCallback(async () => {
-    const apiKey = process.env.NEXT_PUBLIC_DEEPGRAM_API_KEY;
+    const apiKey = DEEPGRAM_API_KEY;
     if (!apiKey) {
       setErrorMessage("Deepgram API key not configured.");
       setStatus("error");
