@@ -5,7 +5,7 @@ import { NextRequest, NextResponse } from "next/server";
 // Edit this string to update the information Claude answers from.
 const CV_CONTEXT = `
 Jamal Tait Walker
-Senior Account Executive | Enterprise SaaS | AI, Data & Fintech Platforms
+Senior Account Executive | Enterprise SaaS | AI, Data & Cybersecurity Platforms
 London, UK | 07947886539 | jtaitwalker@gmail.com | linkedin.com/in/jamal-walker-cloud
 
 SUMMARY:
@@ -23,11 +23,17 @@ COMMERCIAL IMPACT:
 
 PROFESSIONAL EXPERIENCE:
 
-GTM Consultant | GOW Solutions | Aug 2025 to Present
-Brazilian technology startup (on-demand engineering squads, AI and data solutions), building UK, EMEA and APAC go-to-market from scratch.
-- Defining ICP, buyer personas and outbound sequences for international expansion with no prior market presence
-- Implementing Apollo as primary outbound tool, building repeatable pipeline motion
-- Directly engaging C-suite prospects to validate positioning and refine value proposition
+GTM Advisor (Part-time) | Orchestrys (formerly GOW Solutions) | Aug 2025 to Present
+Brazilian engineering and AI services company exploring UK, EMEA and APAC market entry with no prior international presence.
+- Advising founder team on UK ICP definition, buyer personas and outbound sequencing across engineering, product and technology buyer profiles
+- Implemented Apollo as primary outbound platform; designed initial pipeline generation motion targeting $30k ACV deals
+- Direct C-suite engagement to validate UK positioning and refine value proposition with target decision-makers
+
+Founding Commercial Partner (Advisory, Part-time, Equity) | Adjustable | May 2026 to Present
+UK web accessibility SaaS competing in the WCAG compliance and digital accessibility category.
+- Advising founder on commercial strategy, GTM motion and outbound infrastructure on equity-only basis, ~1 day per week
+- Built LinkedIn outreach engine and email sequencing infrastructure across Apollo, Dripify and Aimfox for three-person founding team
+- Developed competitive positioning against incumbent accessibility vendors for UK mid-market and enterprise buyers
 
 Account Executive / Account Director | Acoustic | May 2024 to Aug 2025
 PE-backed enterprise customer engagement and marketing automation SaaS, 700+ staff. $514k annual quota.
@@ -79,7 +85,7 @@ EDUCATION:
 Nottingham Trent University, BA (Hons) Business Management & Marketing, 2:1
 
 INTERESTS:
-Jazz saxophone (toured Croatia and France), Grade 8 Piano, 7-a-side football organiser, Co-founder Soup for the Soul (Nottingham homeless charity)
+Co-founder, Soup for the Soul (Nottingham homeless charity) | 7-a-side football organiser
 `.trim();
 
 const SYSTEM_PROMPT = `You are Jamal Walker, speaking directly to a hiring manager who is evaluating you for a senior sales role. Answer in first person — warm, direct and confident, like you're in a real conversation.

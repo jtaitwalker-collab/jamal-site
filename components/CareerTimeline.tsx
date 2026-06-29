@@ -1,15 +1,4 @@
-const ROLES = [
-  {
-    company: "GOW Solutions",
-    title: "GTM Consultant",
-    period: "Aug 2025 – Present",
-    type: "Consulting",
-    highlights: [
-      "Building UK, EMEA & APAC GTM from scratch for Brazilian AI/data startup",
-      "Implementing Apollo, defining ICP and outbound sequences for international expansion",
-      "Direct C-suite engagement to validate positioning",
-    ],
-  },
+const PROFESSIONAL = [
   {
     company: "Acoustic",
     title: "Account Executive / Account Director",
@@ -77,62 +66,98 @@ const ROLES = [
   },
 ];
 
+const ADVISORY = [
+  {
+    company: "Adjustable",
+    title: "Founding Commercial Partner (Advisory, Part-time, Equity)",
+    period: "May 2026 – Present",
+    type: "UK Web Accessibility SaaS",
+    highlights: [
+      "Built LinkedIn outreach engine and email sequencing infrastructure across Apollo, Dripify and Aimfox",
+      "Developed competitive positioning against incumbent accessibility vendors for UK mid-market and enterprise buyers",
+    ],
+  },
+  {
+    company: "Orchestrys",
+    title: "GTM Advisor (Part-time)",
+    period: "Aug 2025 – Present",
+    type: "Advisory",
+    highlights: [
+      "UK, EMEA & APAC market entry for Brazilian engineering and AI services company with no prior international presence",
+      "Implemented Apollo as primary outbound platform; designed pipeline motion targeting $30k ACV deals",
+      "Advising founder on UK ICP definition, buyer personas and outbound sequencing",
+    ],
+  },
+];
+
+function SectionHeader({ label }: { label: string }) {
+  return (
+    <div className="flex items-center gap-3 mb-6">
+      <div className="w-1 h-5 bg-gold rounded-full" />
+      <h2 className="text-xs tracking-[0.2em] text-muted uppercase font-mono">
+        {label}
+      </h2>
+    </div>
+  );
+}
+
+function RoleCard({ role, isFirst }: { role: (typeof PROFESSIONAL)[number]; isFirst: boolean }) {
+  return (
+    <div className="relative pl-7">
+      {/* Dot */}
+      <div
+        className={[
+          "absolute left-0 top-1.5 w-3.5 h-3.5 rounded-full border-2 flex-shrink-0",
+          isFirst
+            ? "border-gold bg-gold/20 shadow-[0_0_8px_rgba(201,168,76,0.4)]"
+            : "border-muted-2 bg-bg",
+        ].join(" ")}
+      />
+
+      {/* Card */}
+      <div className="border border-border rounded-lg bg-surface p-4 hover:border-gold/20 transition-all duration-200 group">
+        {/* Header */}
+        <div className="flex flex-wrap items-start justify-between gap-2 mb-3">
+          <div>
+            <h3 className="text-sm font-semibold text-ink group-hover:text-gold transition-colors">
+              {role.company}
+            </h3>
+            <p className="text-xs text-muted mt-0.5">{role.title}</p>
+          </div>
+          <div className="text-right flex-shrink-0">
+            <p className="text-xs text-muted font-mono">{role.period}</p>
+            <span className="inline-block mt-1 text-[10px] text-gold/70 border border-gold/20 rounded px-1.5 py-0.5 bg-gold/5">
+              {role.type}
+            </span>
+          </div>
+        </div>
+
+        {/* Highlights */}
+        <ul className="space-y-1.5">
+          {role.highlights.map((h, j) => (
+            <li key={j} className="flex gap-2 text-xs text-muted leading-relaxed">
+              <span className="text-gold/50 flex-shrink-0 mt-0.5">›</span>
+              <span>{h}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  );
+}
+
 export default function CareerTimeline() {
   return (
     <section>
-      <div className="flex items-center gap-3 mb-6">
-        <div className="w-1 h-5 bg-gold rounded-full" />
-        <h2 className="text-xs tracking-[0.2em] text-muted uppercase font-mono">
-          Career Timeline
-        </h2>
-      </div>
+      {/* ── Professional Experience ── */}
+      <SectionHeader label="Professional Experience" />
 
       <div className="relative">
-        {/* Vertical line */}
         <div className="absolute left-[7px] top-2 bottom-2 w-px timeline-line" />
 
         <div className="space-y-8">
-          {ROLES.map((role, i) => (
-            <div key={i} className="relative pl-7">
-              {/* Dot */}
-              <div
-                className={[
-                  "absolute left-0 top-1.5 w-3.5 h-3.5 rounded-full border-2 flex-shrink-0",
-                  i === 0
-                    ? "border-gold bg-gold/20 shadow-[0_0_8px_rgba(201,168,76,0.4)]"
-                    : "border-muted-2 bg-bg",
-                ].join(" ")}
-              />
-
-              {/* Card */}
-              <div className="border border-border rounded-lg bg-surface p-4 hover:border-gold/20 transition-all duration-200 group">
-                {/* Header */}
-                <div className="flex flex-wrap items-start justify-between gap-2 mb-3">
-                  <div>
-                    <h3 className="text-sm font-semibold text-ink group-hover:text-gold transition-colors">
-                      {role.company}
-                    </h3>
-                    <p className="text-xs text-muted mt-0.5">{role.title}</p>
-                  </div>
-                  <div className="text-right flex-shrink-0">
-                    <p className="text-xs text-muted font-mono">{role.period}</p>
-                    <span className="inline-block mt-1 text-[10px] text-gold/70 border border-gold/20 rounded px-1.5 py-0.5 bg-gold/5">
-                      {role.type}
-                    </span>
-                  </div>
-                </div>
-
-                {/* Highlights */}
-                <ul className="space-y-1.5">
-                  {role.highlights.map((h, j) => (
-                    <li key={j} className="flex gap-2 text-xs text-muted leading-relaxed">
-                      <span className="text-gold/50 flex-shrink-0 mt-0.5">›</span>
-                      <span>{h}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
+          {PROFESSIONAL.map((role, i) => (
+            <RoleCard key={role.company} role={role} isFirst={i === 0} />
           ))}
         </div>
 
@@ -157,16 +182,28 @@ export default function CareerTimeline() {
         </div>
       </div>
 
-      {/* Interests strip */}
+      {/* ── Advisory Engagements ── */}
+      <div className="mt-12">
+        <SectionHeader label="Advisory Engagements" />
+
+        <div className="relative">
+          <div className="absolute left-[7px] top-2 bottom-2 w-px timeline-line" />
+
+          <div className="space-y-8">
+            {ADVISORY.map((role, i) => (
+              <RoleCard key={role.company} role={role} isFirst={i === 0} />
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* ── Interests strip ── */}
       <div className="mt-8 p-4 border border-border rounded-lg bg-surface">
         <p className="text-xs text-muted font-mono uppercase tracking-wide mb-2">
           Beyond sales
         </p>
         <div className="flex flex-wrap gap-2">
           {[
-            "Jazz saxophone 🎷",
-            "Toured Croatia & France",
-            "Grade 8 Piano",
             "7-a-side football organiser",
             "Soup for the Soul co-founder",
           ].map((tag) => (

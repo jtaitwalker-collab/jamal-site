@@ -55,7 +55,7 @@ export default function Home() {
                 Senior Account Executive
               </p>
               <p className="text-muted max-w-xl text-sm leading-relaxed">
-                Enterprise SaaS · AI, Data &amp; Fintech Platforms · 9+ years
+                Enterprise SaaS · AI, Data &amp; Cybersecurity Platforms · 9+ years
                 closing six-figure ARR deals across UK &amp; EMEA. Net-new
                 pipeline builder. Quota-crusher. GTM architect.
               </p>
